@@ -1,0 +1,9 @@
+.cardRating{
+    display: flex;
+
+}
+.cardAction{
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+}
