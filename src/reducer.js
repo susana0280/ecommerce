@@ -9,6 +9,16 @@ export const actionTypes={
 
 }
 
+
+export const getBasketTotal=(basket)=>{
+
+return  basket?.reduce((amount,item)=>item.price+amount ,0)
+  
+}
+
+
+
+
 //escucha si en algún punto "de la manguera de datos" se han inyectado datos
 
  const reducer=(state,action)=>{
