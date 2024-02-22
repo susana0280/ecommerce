@@ -12,9 +12,9 @@ root.render(
 
   <BrowserRouter>
  
-    {/* <StateProvider initialState={initialState} reducer={reducer}> */}
+    <StateProvider initialState={initialState} reducer={reducer}>
     <App />
-    {/* </StateProvider> */}
+    </StateProvider>
 
     </BrowserRouter>
 );

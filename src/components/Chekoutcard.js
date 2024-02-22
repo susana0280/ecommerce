@@ -16,6 +16,8 @@ import { useTheme } from '@mui/material/styles';
 import './Product.css'
 import './Chekoutcard.css'
 import DeleteIcon from '@mui/icons-material/Delete';
+import { useStateValue } from '../StateProvider';
+import { actionTypes } from '../reducer';
 
 // const ExpandMore = styled((props) => {
 //   const { expand, ...other } = props;
@@ -76,13 +78,30 @@ const ThemeComponent = () => { const theme = useTheme();
 
 
 
-export default function Checkoutcard({product:{rating,name,productType,url,description,price}}) {
+export default function Checkoutcard({product:{id,rating,name,productType,url,description,price}}) {
  
   const [expanded, setExpanded] = React.useState(false);
+  const[{basket}, dispatch]=useStateValue()
+
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
+
+
+const removeItem=()=>{
+
+  dispatch({
+
+      type:actionTypes.REMOVE_TO_ITEM,
+      id
+
+
+  }
+
+  )
+
+}
 
   return (
  
@@ -121,7 +140,7 @@ export default function Checkoutcard({product:{rating,name,productType,url,descr
        
        }
     </div>
-       <IconButton>
+       <IconButton onClick={removeItem}>
      <DeleteIcon fontSize='large'/>
      </IconButton>
      

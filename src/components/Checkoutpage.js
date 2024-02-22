@@ -4,13 +4,17 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-import products from '../product-data';
+// import products from '../product-data';
 // import Product from './Product';
 import { Typography } from '@mui/material';
 import './Checkoutpage.css'
 // import { red } from '@mui/material/colors';
 import Chekoutcard from './Chekoutcard';
 import Total from './Total';
+import { useStateValue } from '../StateProvider';
+
+
+
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,6 +30,9 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Checkoutpage() {
 
+const[{basket},dispatch]=useStateValue()
+
+
 function FormRow(){
 
     return(
@@ -33,8 +40,8 @@ function FormRow(){
         <React.Fragment>
                 
                 {
-                    products.map(item=>(
-                     
+                    basket?.map(item=>(
+                
                         <Grid item xs={12} sm={8} md={4} container spacing={2} >
                        
                         <Chekoutcard key={item.id} product={item} />
