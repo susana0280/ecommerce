@@ -14,6 +14,10 @@ import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge } from '@mui/material';
 import {Link} from 'react-router-dom'
 import { useStateValue } from '../StateProvider';
+import SignIn from './SignIn';
+import { auth } from '../firebase';
+import { actionTypes } from '../reducer';
+import { useNavigate } from 'react-router-dom'; 
 
 
 
@@ -45,8 +49,32 @@ export default function NavBar() {
   //   }
   //   })
 
-const [{basket},dispatch]=useStateValue()
+const [{basket,user},dispatch]=useStateValue()
+const navigator=useNavigate()
 
+const handleOut =()=>{
+
+  if(user){
+
+  auth.signOut()
+
+  dispatch({
+    type:actionTypes.EMPTY_BASKET,
+    basket:[],
+    
+  })
+
+  dispatch({
+    type:actionTypes.SET_USER,
+    user:null,
+    
+  })
+
+  navigator('/')
+}
+
+
+}
   return (
     <Box sx={{ flexGrow: 1 }} >
       <AppBar position="fixed" >
@@ -69,14 +97,16 @@ const [{basket},dispatch]=useStateValue()
 
          <div className='grow'/>
           <Typography variant="h6" color="textPrimary" component="p">
-            Hello Guest
+            Hello {user?user.email : "Guess"}
           </Typography>
           
   
        <div className='button'>
-        <Button variant='outlined' >  
-        <strong>Sign in</strong>
+        <Link to="/Signin">
+        <Button variant='outlined' onClick={handleOut}>  
+        <strong>{user ? "sing Out":"sign in"}</strong>
         </Button>
+        </Link>
          </div>
       
       <Link to="/checkout-page">
