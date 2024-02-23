@@ -6,10 +6,8 @@ import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
-// import MenuIcon from '@mui/icons-material/Menu';
 import logo from '../assets/logo.png'
 import  './NavBar.css'
-// import styled from '@emotion/styled';
 import AddShoppingCart from '@mui/icons-material/AddShoppingCart';
 import { Badge } from '@mui/material';
 import {Link} from 'react-router-dom'
@@ -25,29 +23,7 @@ import { useNavigate } from 'react-router-dom';
 
 export default function NavBar() {
 
-  // const AppBar=styled("AppBar")({
 
-  //   root:{
-  //     flexGrow:1,
-  //     marginBottom:"7rem"
-  //   },
-  //   appBar:{
-  //     backgroundColor:"whitesmoke",
-  //     boxShadow:"none"
-      
-  //   },
-    
-  //   grow:{
-  //     flexGrow:1
-  //   },
-  //   button:{
-  //     marginLeft:"20px"
-  //   },
-  //   image:{
-  //     marginRight:"10px",
-   
-  //   }
-  //   })
 
 const [{basket,user},dispatch]=useStateValue()
 const navigator=useNavigate()

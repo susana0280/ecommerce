@@ -4,11 +4,8 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
-// import products from '../product-data';
-// import Product from './Product';
 import { Typography } from '@mui/material';
 import './Checkoutpage.css'
-// import { red } from '@mui/material/colors';
 import Chekoutcard from './Chekoutcard';
 import Total from './Total';
 import { useStateValue } from '../StateProvider';
